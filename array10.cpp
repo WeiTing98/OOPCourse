@@ -14,6 +14,7 @@ int main(){
         rate -= 0.1;
     }
     string input, temp;
+    //輸入並分割字串
     stringstream ss;
     cin >> input;
     int ratePerMonth, time;
@@ -23,14 +24,18 @@ int main(){
     getline(ss , temp, ',');
     time = stoi(temp);
     double money;
+    //計算通話費
     if(ratePerMonth == 186){
         money = (time * 0.09);
+        //倍數小於1
         if(money / ratePerMonth <= 1 && money > ratePerMonth){
             money *= discount[0].first;
         }
+        //倍數大於1
         else if (money / ratePerMonth > 1){
             money *= discount[0].second;
         }
+        //沒超過月租
         else money = ratePerMonth;
     }
     else if (ratePerMonth == 386)
